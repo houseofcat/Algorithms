@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# RCS1090: Call 'ConfigureAwait(false)'.
+dotnet_diagnostic.RCS1090.severity = silent
+
+# RCS1227: Validate arguments correctly.
+dotnet_diagnostic.RCS1227.severity = silent
