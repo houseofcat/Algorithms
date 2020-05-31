@@ -15,11 +15,29 @@ namespace Algorithm.Utils
                 .WriteLineAsync($"{Time()}: {message}.");
         }
 
+        public static async Task ConsolePrintArrayAsync(int[] input)
+        {
+            await Console
+                .Out
+                .WriteLineAsync($"ArraySize: {input.Length} =============\r\n");
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                await Console
+                    .Out
+                    .WriteLineAsync($"Index [{i}]:{input[i]}");
+            }
+
+            await Console
+                .Out
+                .WriteLineAsync($"=======================================\r\n");
+        }
+
         public static async Task ConsoleLogAsSecondsAsync(string message, Stopwatch sw)
         {
             await Console
                 .Out
-                .WriteLineAsync($"{Time()}: {message} {(sw.ElapsedMilliseconds / 1000.0):0.###} s.");
+                .WriteLineAsync($"{Time()}: {message} {sw.ElapsedMilliseconds / 1000.0:0.###} s.");
         }
 
         public static async Task ConsoleLogAsMillisecondsAsync(string message, Stopwatch sw)
@@ -41,6 +59,15 @@ namespace Algorithm.Utils
             await Console
                 .Out
                 .WriteLineAsync($"{Time()}: {message} {sw.ElapsedNanoseconds()} ns.");
+        }
+
+        public static void Swap(int[] input, int i, int j)
+        {
+            if (i == j) return;
+
+            var temp = input[i];
+            input[i] = input[j];
+            input[j] = temp;
         }
     }
 }
